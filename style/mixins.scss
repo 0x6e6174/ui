@@ -1,0 +1,27 @@
+@mixin dial($_fg, $_bg, $margin, $padding, $font-size, $icon-font-size) {
+  color: $_fg;
+  background-color: $_bg;
+  margin: $margin;
+  padding: $padding;
+  font-size: $font-size;
+
+  .dial-icon {
+    font-family: 'Symbols Nerd Font Mono';
+    font-size: $icon-font-size;
+    color: $icon-color;
+  }
+}
+
+@mixin bar-dial($_fg, $_bg) {
+  @include dial($_fg, $_bg, 0px, 0px, 5px, 16px)
+}
+
+@mixin panel-dial($_fg, $_bg) {
+  @include dial($_fg, $_bg, 0px, 10px, 8px, 32px);
+  margin-left: 10px;
+  border-radius: 10px;
+  .resource-dial {
+    min-width: 96px;
+    min-height: 96px;
+  }
+}

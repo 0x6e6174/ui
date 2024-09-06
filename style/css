@@ -1,0 +1,212 @@
+* :not(selection) :not(tooltip) {
+  all: unset; }
+
+#status-bar {
+  background-color: #161616;
+  border-radius: 0 10px 10px 0; }
+  #status-bar .dial-container {
+    margin-top: 10px; }
+    #status-bar .dial-container .battery-dial {
+      color: #33B1FF;
+      background-color: #161616;
+      margin: 0px;
+      padding: 0px;
+      font-size: 5px; }
+      #status-bar .dial-container .battery-dial .dial-icon {
+        font-family: 'Symbols Nerd Font Mono';
+        font-size: 16px;
+        color: #f2f4f8; }
+    #status-bar .dial-container .volume-dial {
+      color: #33B1FF;
+      background-color: #161616;
+      margin: 0px;
+      padding: 0px;
+      font-size: 5px; }
+      #status-bar .dial-container .volume-dial .dial-icon {
+        font-family: 'Symbols Nerd Font Mono';
+        font-size: 16px;
+        color: #f2f4f8; }
+    #status-bar .dial-container .brightness-dial {
+      color: #33B1FF;
+      background-color: #161616;
+      margin: 0px;
+      padding: 0px;
+      font-size: 5px; }
+      #status-bar .dial-container .brightness-dial .dial-icon {
+        font-family: 'Symbols Nerd Font Mono';
+        font-size: 16px;
+        color: #f2f4f8; }
+  #status-bar .workspace-container {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 6px 0px;
+    margin: 0px 12px;
+    border: none; }
+    #status-bar .workspace-container .ws-norm {
+      min-width: 15px;
+      border-radius: 10px;
+      margin: 2px 5px;
+      padding: 6px 10px;
+      background-color: #161616;
+      color: #f2f4f8; }
+    #status-bar .workspace-container .ws-active {
+      color: #161616;
+      background-color: #FF7EB6; }
+  #status-bar .menu-visibility-button {
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px 0px 10px 2px;
+    background-color: #262626; }
+  #status-bar .clock {
+    background-color: #262626;
+    margin: 8px;
+    margin-bottom: 10px;
+    padding: 6px 2px;
+    border-radius: 10px; }
+  #status-bar .mpd-controls .button {
+    font-size: 14px;
+    margin: 2px;
+    margin-bottom: 8px;
+    font-family: 'Symbols Nerd Font Mono'; }
+    #status-bar .mpd-controls .button:hover {
+      color: #FF7EB6; }
+
+#status-bar .Menu {
+  background-color: #262626;
+  min-width: 640px; }
+  #status-bar .Menu .mpd-controls {
+    background-color: #161616;
+    border-radius: 10px;
+    margin: 10px; }
+    #status-bar .Menu .mpd-controls .button {
+      font-size: 24px;
+      padding: 10px;
+      margin: 10px;
+      background-color: #262626;
+      border-color: #262626;
+      border-radius: 10px; }
+    #status-bar .Menu .mpd-controls .cover {
+      min-width: 250px;
+      min-height: 250px;
+      border-radius: 10px;
+      margin: 10px;
+      background: #161616;
+      background-size: cover; }
+    #status-bar .Menu .mpd-controls .title {
+      padding-top: 10px;
+      font-size: 20px;
+      font-weight: bold; }
+    #status-bar .Menu .mpd-controls .position {
+      margin: 10px;
+      margin-right: 20px;
+      min-height: 10px;
+      border-radius: 5px; }
+      #status-bar .Menu .mpd-controls .position trough {
+        background: #262626;
+        border-radius: 5px;
+        min-height: 10px; }
+      #status-bar .Menu .mpd-controls .position highlight {
+        min-height: 10px;
+        border-radius: 5px;
+        background: #FF7Eb6; }
+    #status-bar .Menu .mpd-controls .position-label {
+      margin-top: 75px; }
+  #status-bar .Menu .dial-parent {
+    color: #FF7eb6;
+    background-color: #161616;
+    margin: 0px;
+    padding: 10px;
+    font-size: 8px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border-radius: 10px; }
+    #status-bar .Menu .dial-parent .dial-icon {
+      font-family: 'Symbols Nerd Font Mono';
+      font-size: 32px;
+      color: #f2f4f8; }
+    #status-bar .Menu .dial-parent .resource-dial {
+      min-width: 96px;
+      min-height: 96px; }
+    #status-bar .Menu .dial-parent .dial-icon {
+      color: #f2f4f8; }
+
+#notifications {
+  background: transparent; }
+
+.notifications {
+  opacity: 1;
+  min-width: 24rem; }
+  .notifications .revealer + .revealer > * > box {
+    margin-top: 0; }
+  .notifications .revealer .notification {
+    margin: 25px;
+    min-width: 24rem;
+    padding: 0px;
+    border: 2px solid #f2f4f8;
+    background: #161616; }
+    .notifications .revealer .notification.critical {
+      border: 2px solid #FF7EB6; }
+  .notifications .revealer .body {
+    margin-right: 1em; }
+  .notifications .revealer .timeout-bar {
+    margin: 5px 0px 0;
+    margin-top: 5px;
+    background: #262626; }
+    .notifications .revealer .timeout-bar > trough > progress {
+      background-image: none;
+      background-color: #33B1FF; }
+  .notifications .revealer .button {
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px; }
+    .notifications .revealer .button:hover {
+      color: #FF7EB6; }
+  .notifications .revealer .icon {
+    min-width: 68px;
+    min-height: 68px;
+    margin-right: 1em;
+    margin-left: 1em; }
+  .notifications .revealer .icon image {
+    font-size: 58px;
+    margin: 5px;
+    color: #f2f4f8; }
+  .notifications .revealer .icon box {
+    min-width: 68px;
+    min-height: 68px; }
+  .notifications .revealer .title {
+    font-size: 24px; }
+  .notifications .revealer .actions .action-button {
+    margin: 0 .4em;
+    margin-top: .8em;
+    border: 2px solid #f2f4f8; }
+  .notifications .revealer .actions .action-button:first-child {
+    margin-left: .5em; }
+  .notifications .revealer .actions .action-button:last-child {
+    margin-right: .5em; }
+
+.launcher {
+  min-width: 640px;
+  background: #262626; }
+  .launcher .search > image {
+    margin-left: 10px; }
+  .launcher .search > entry {
+    padding: 5px;
+    margin: 10px;
+    background: #161616;
+    border: 5px solid #161616;
+    border-radius: 10px;
+    font-size: 32px; }
+  .launcher .entry {
+    margin: 0 10px 0 10px;
+    border: 10px solid #161616;
+    border-radius: 10px;
+    background: #161616; }
+    .launcher .entry > box > image {
+      padding: 5px;
+      margin: 5px 10px 5px 10px;
+      background: #262626;
+      border-radius: 5px; }
+  .launcher > scrolledwindow > * > box:last-child {
+    margin-bottom: 10px; }
+
+* :not(selection) :not(tooltip) {
+  all: unset; }

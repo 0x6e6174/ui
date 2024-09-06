@@ -1,0 +1,43 @@
+.launcher {
+  min-width: 640px;
+  background: $bg-alt-1;
+  
+  .search {
+    > image {
+      margin-left: 10px;
+    }
+
+    > entry {
+      padding: 5px;
+      margin: 10px;
+      background: $bg;
+      border: 5px solid $bg; 
+      border-radius: 10px;
+      font-size: 32px;
+    }
+  }
+
+  .entry {
+    margin: 0 10px 0 10px;
+    border: 10px solid $bg; 
+    border-radius: 10px;
+    background: $bg;
+
+    > box {
+      > image {
+        padding: 5px;
+        margin: 5px 10px 5px 10px;
+        background: $bg-alt-1;
+        border-radius: 5px;
+      }
+
+      > label {
+
+      }
+    }
+  }
+
+  > scrolledwindow > * > box:last-child {
+    margin-bottom: 10px;
+  }
+}

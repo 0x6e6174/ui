@@ -1,0 +1,14 @@
+@import 'colors.scss';
+@import 'mixins.scss';
+
+// components
+@import './components/lock.scss';
+@import './components/bar.scss';
+@import './components/top-bar.scss';
+@import './components/bar-control-center.scss';
+@import './components/notification-popups.scss';
+@import './components/launcher.scss';
+
+* :not(selection) :not(tooltip) {
+    all: unset;
+}

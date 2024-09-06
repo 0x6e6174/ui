@@ -1,0 +1,68 @@
+#status-bar .Menu {
+  background-color: $bg-alt-1;
+  min-width: 640px;
+
+  .mpd-controls {
+    background-color: $bg;
+    border-radius: 10px;
+    margin: 10px;
+
+    .button { 
+      font-size: 24px;
+      padding: 10px;
+      margin: 10px;
+      background-color: $bg-alt-1; 
+      border-color: $bg-alt-1;
+      border-radius: 10px;
+    }
+
+    .cover {
+      min-width: 250px; 
+      min-height: 250px;
+      border-radius: 10px;
+      margin: 10px;
+      background: $bg;
+      background-size: cover;
+    }
+
+    .title {
+      padding-top: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .position {
+      margin: 10px;
+      margin-right: 20px;
+      min-height: 10px;
+      border-radius: 5px;
+
+      trough {
+        background: $bg-alt-1;
+        border-radius: 5px;
+        min-height: 10px;
+      }
+
+      slider {
+        min-height: 10px;
+        border-radius: 5px;
+        background: $mpd-progress-primary;
+      }
+    }
+
+    .position-label {
+      margin-top: 75px;
+    }
+  }
+
+  .dial-parent {
+    @include panel-dial($resource-dial-fg-cpu, $bg);
+    border-radius: 10px;
+
+
+    .dial-icon {
+      color: $fg;
+    }   
+  }
+}
+

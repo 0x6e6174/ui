@@ -1,0 +1,89 @@
+#notifications {
+  background: transparent;
+}
+
+.notifications {
+  opacity: 1;
+  min-width: 24rem;
+  .revealer {
+    + .revealer {
+      >*>box {
+        margin-top: 0;
+      }
+    }
+    
+    .notification {
+      margin-bottom: 25px;
+      min-width: 24rem;
+      padding: 0px;
+      border: 2px solid $fg;
+      border-right: 25px solid $hl-alt-2; 
+      background: $bg;
+
+      &.critical {
+        border-right: 25px solid $hl; 
+      }
+    }
+
+    .body {
+      margin-right: 1em;
+    }
+
+    .timeout-bar {
+      margin: 5px 0px 0;
+      margin-top: 5px;
+      background: $bg-alt-1;
+
+      > trough > progress {
+        background-image: none;
+        background-color: $hl-alt-1;
+      }
+    }
+
+    .button {
+      font-size: 20px; 
+      margin-left: 5px;
+      margin-right: 5px;
+      
+      &:hover {
+        color: $hl;
+      }
+    }
+
+    .icon {
+      min-width: 68px;
+      min-height: 68px;
+      margin-right: 1em;
+      margin-left: 1em;
+    }
+
+    .icon image {
+      font-size: 58px;
+      margin: 5px;
+      color: $fg;
+    }
+
+    .icon box {
+      min-width: 68px;
+      min-height: 68px;
+    }
+
+    .title { 
+      font-size: 28px;
+    }
+
+    .actions .action-button {
+      margin: 0 .4em;
+      margin-top: .8em;
+      border: 2px solid $fg;
+    }
+
+    .actions .action-button:first-child {
+      margin-left: .5em;
+    }
+
+    .actions .action-button:last-child {
+      margin-right: .5em;
+    }
+  }
+}
