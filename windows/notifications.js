@@ -3,8 +3,6 @@ const { Pango } = imports.gi;
 
 Notifications.popupTimeout = 3000;
 
-
-
 function notification_icon({ app_entry, app_icon, image }) {
     if (image) {
         return Widget.Box({
@@ -29,7 +27,8 @@ function notification_icon({ app_entry, app_icon, image }) {
 
 const notification = (n) => {
     const icon = Widget.Box({
-        vpack: 'start',
+        vpack: 'center',
+        hpack: 'start',
         class_name: 'icon',
         child: notification_icon(n),
     })
@@ -38,6 +37,7 @@ const notification = (n) => {
         className: 'title', 
         label: n.summary, 
         xalign: 0,
+        maxWidthChars: 40,
         justify: 'left',
     })
 
@@ -65,16 +65,16 @@ const notification = (n) => {
         })),
     })
 
-    const buttons = Widget.Box({
-        hpack: 'end', 
-        children: [
-            Widget.Button({
-                className: 'button',
-                onClicked: () => n.dismiss(),
-                child: Widget.Label('')
-            })        
-        ]
-    })
+    // const buttons = Widget.Box({
+    //     hpack: 'end', 
+    //     children: [
+    //         Widget.Button({
+    //             className: 'button',
+    //             onClicked: () => n.dismiss(),
+    //             child: Widget.Label('')
+    //         })        
+    //     ]
+    // })
 
     const timeout_progress = Widget.ProgressBar({
         className: 'timeout-bar',
@@ -91,23 +91,33 @@ const notification = (n) => {
         }
     })
 
-    const layout = Widget.Box({
-        className: `notification ${n.urgency}`,
-        vertical: true, 
-        children: [
-            buttons, 
-            Widget.Box([
-                icon,
+    const layout = Widget.Button({
+        child: Widget.Box({
+            children: [ 
                 Widget.Box({
+                    className: 'notification',
                     vertical: true, 
                     children: [
-                        title, body
+                        Widget.Box([
+                            icon,
+                            Widget.Box({
+                                vertical: true, 
+                                children: [
+                                    title, body
+                                ]
+                            })
+                        ]),
+                        actions,
+                        timeout_progress
                     ]
+                }),
+                Widget.Box({
+                    vexpand: false,
+                    classNames: ['urgency-indicator', n.urgency]
                 })
-            ]),
-            actions,
-            timeout_progress
-        ]
+            ]
+        }),
+        onPrimaryClick: n.dismiss,
     })
 
     return Widget.Revealer({
@@ -141,7 +151,7 @@ export const NotificationPopups = Widget.Window({
     name: 'notifications', 
     anchor: ['top', 'right'],
     layer: 'overlay',
-    margins: [5, 0, 0, 0],
+    margins: [15, 0, 0, 0],
     child: Widget.Box({
         className: 'notifications', 
         vertical: true, 

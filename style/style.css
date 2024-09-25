@@ -243,16 +243,21 @@
     margin-bottom: 25px;
     min-width: 24rem;
     padding: 0px;
-    border: 2px solid #f2f4f8;
-    border-right: 25px solid #42be65;
+    border: 1px solid #f2f4f8;
+    border-right: none;
     background: #161616; }
-    .notifications .revealer .notification.critical {
-      border-right: 25px solid #FF7EB6; }
+  .notifications .revealer .urgency-indicator {
+    min-width: 15px;
+    margin-bottom: 25px; }
+    .notifications .revealer .urgency-indicator.normal, .notifications .revealer .urgency-indicator.low {
+      background: #42be65;
+      border: 1px solid #42be65; }
+    .notifications .revealer .urgency-indicator.urgent {
+      background: #FF7EB6;
+      border: 1px solid #FF7EB6; }
   .notifications .revealer .body {
     margin-right: 1em; }
   .notifications .revealer .timeout-bar {
-    margin: 5px 0px 0;
-    margin-top: 5px;
     background: #262626; }
     .notifications .revealer .timeout-bar > trough > progress {
       background-image: none;
@@ -266,8 +271,7 @@
   .notifications .revealer .icon {
     min-width: 68px;
     min-height: 68px;
-    margin-right: 1em;
-    margin-left: 1em; }
+    margin: 5px; }
   .notifications .revealer .icon image {
     font-size: 58px;
     margin: 5px;
@@ -276,7 +280,8 @@
     min-width: 68px;
     min-height: 68px; }
   .notifications .revealer .title {
-    font-size: 28px; }
+    font-size: 28px;
+    padding-right: 5px; }
   .notifications .revealer .actions .action-button {
     margin: 0 .4em;
     margin-top: .8em;

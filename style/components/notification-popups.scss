@@ -16,12 +16,23 @@
       margin-bottom: 25px;
       min-width: 24rem;
       padding: 0px;
-      border: 2px solid $fg;
-      border-right: 25px solid $hl-alt-2; 
+      border: 1px solid $fg;
+      border-right: none;
       background: $bg;
+    }
 
-      &.critical {
-        border-right: 25px solid $hl; 
+    .urgency-indicator {
+      min-width: 15px;
+      margin-bottom: 25px;
+
+      &.normal, &.low {
+        background: $hl-alt-2;
+        border: 1px solid $hl-alt-2;
+      }
+
+      &.urgent {
+        background: $hl;
+        border: 1px solid $hl
       }
     }
 
@@ -30,8 +41,6 @@
     }
 
     .timeout-bar {
-      margin: 5px 0px 0;
-      margin-top: 5px;
       background: $bg-alt-1;
 
       > trough > progress {
@@ -53,8 +62,7 @@
     .icon {
       min-width: 68px;
       min-height: 68px;
-      margin-right: 1em;
-      margin-left: 1em;
+      margin: 5px;
     }
 
     .icon image {
@@ -68,8 +76,9 @@
       min-height: 68px;
     }
 
-    .title { 
+    .title {
       font-size: 28px;
+      padding-right: 5px;
     }
 
     .actions .action-button {
