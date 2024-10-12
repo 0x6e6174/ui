@@ -1,0 +1,26 @@
+$height: 50px;
+
+bar {
+  background: transparent
+}
+
+box.workspaces {
+  min-height: $height;
+  background: $bg;
+  padding: 5px;
+
+  box > button {
+    min-width: 10px;
+    min-height: 10px;
+    margin: 5px;
+    background-color: $bg-alt-1;
+
+    &.occupied {
+      background-color: $bg-alt-2;
+    }
+
+    &.focused {
+      background-color: $hl;
+    }
+  }
+}
