@@ -27,6 +27,7 @@ local function workspace_row(start, stop)
             end
           end
 
+          self:hook(hypr, 'client-moved', update)
           self:hook(hypr, 'notify::clients', update)
           self:hook(hypr, 'notify::workspaces', update)
 
