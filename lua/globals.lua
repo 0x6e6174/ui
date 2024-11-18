@@ -1,15 +1,14 @@
 lgi = require('lgi')
 
-astal = require("astal")
-
-GLib = astal.GLib
-Gtk = astal.Gtk
-Gdk = astal.Gdk
-Gio = astal.Gio
+astal = require("astal.gtk3")
 
 Astal = astal.Astal
 Widget = astal.Widget
+App = astal.App
+Gtk = astal.Gtk
 
-bind = astal.bind
+bind = require'astal'.bind
+read_file = require'astal'.read_file
+exec = require'astal'.exec
 
-Variable = astal.Variable
+Variable = require('astal.variable')
