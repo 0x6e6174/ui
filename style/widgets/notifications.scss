@@ -1,0 +1,33 @@
+.notifications {
+  > * {
+    > box {
+      margin: 10px 20px;
+      border: 1px solid $fg;
+      border-right: none;
+      background: $bg;
+
+      .title {
+        font-family: 'tewi';
+        font-size: 22px;
+        min-width: 16rem;
+      }
+
+      .icon {
+        min-width: 64px;
+        min-height: 64px;
+        margin: 5px;
+        font-size: 58px
+      }
+
+      .timeout-bar {
+        background: $bg-alt-1;
+
+        > trough > progress {
+          background-image: none;
+          background-color: $hl-alt-1;
+        }
+      }
+    }
+  }
+}
+
