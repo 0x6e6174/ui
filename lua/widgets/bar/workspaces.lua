@@ -3,10 +3,6 @@ local map, sequence = require('lua.lib').map, require('lua.lib').sequence
 
 local hypr = Hyprland.get_default()
 
-local map, sequence = require('lua.lib').map, require('lua.lib').sequence
-
-local hypr = Hyprland.get_default()
-
 local function workspace_row(start, stop)
   return Widget.Box({
     children = map(sequence(start, stop), function(i)
