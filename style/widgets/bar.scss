@@ -1,26 +1,89 @@
 $height: 50px;
 
 bar {
-  background: transparent
+  background: transparent;
 }
 
-box.workspaces {
-  min-height: $height;
-  background: $bg;
-  padding: 5px;
+centerbox {
+  > box.left {
+    box.workspaces {
+      min-height: $height;
+      background: $bg;
+      padding: 5px;
+      padding-top: 15px;
 
-  box > button {
-    min-width: 10px;
-    min-height: 10px;
-    margin: 5px;
-    background-color: $bg-alt-1;
+      box > button {
+        min-width: 10px;
+        min-height: 10px;
+        margin: 5px;
+        background-color: $bg-alt-1;
 
-    &.occupied {
-      background-color: $bg-alt-2;
+        &.occupied {
+          background-color: $bg-alt-2;
+        }
+
+        &.focused {
+          background-color: $hl;
+        }
+      }
+    }
+  }
+
+  > box.right {
+    min-height: $height;
+    background: $bg;
+
+    box.sliders {
+      margin: 5px;
+      box.volume-slider {
+        > button {
+          font-size: 20px; 
+          margin: 5px;
+        }
+        
+        > .volume-slider { /* selecting this as `slider` doesn't work, for some reason.*/
+          min-width: 120px;
+          min-height: 10px;
+
+          & trough {
+            min-height: 10px;
+            min-width: 120px;
+            background: $bg-alt-1;
+          }
+
+          & highlight {
+            background: $hl-alt-1;
+          }
+        }
+      } 
     }
 
-    &.focused {
-      background-color: $hl;
+    .battery-container {
+      padding-left: 10px;
+      padding-right: 10px;
+      .battery-dial {
+        min-width: 40px;
+        min-height: 40px;
+        @include bar-dial($battery-dial-bg, $battery-dial-fg);
+      }    
+    }  
+
+    separator {
+      background: $bg-alt-1;
+      padding: 1px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    box.clock {
+      margin: 10px;
+      background: $bg;
+      
+      .datetime {
+        margin: 1px;
+        font-size: 10pt;
+      }
     }
   }
 }
+

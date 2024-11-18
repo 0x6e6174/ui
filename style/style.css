@@ -4,16 +4,62 @@
 bar {
   background: transparent; }
 
-box.workspaces {
+centerbox > box.left box.workspaces {
   min-height: 50px;
   background: #161616;
-  padding: 5px; }
-  box.workspaces box > button {
+  padding: 5px;
+  padding-top: 15px; }
+  centerbox > box.left box.workspaces box > button {
     min-width: 10px;
     min-height: 10px;
     margin: 5px;
     background-color: #262626; }
-    box.workspaces box > button.occupied {
+    centerbox > box.left box.workspaces box > button.occupied {
       background-color: #393939; }
-    box.workspaces box > button.focused {
+    centerbox > box.left box.workspaces box > button.focused {
       background-color: #FF7EB6; }
+
+centerbox > box.right {
+  min-height: 50px;
+  background: #161616; }
+  centerbox > box.right box.sliders {
+    margin: 5px; }
+    centerbox > box.right box.sliders box.volume-slider > button {
+      font-size: 20px;
+      margin: 5px; }
+    centerbox > box.right box.sliders box.volume-slider > .volume-slider {
+      /* selecting this as `slider` doesn't work, for some reason.*/
+      min-width: 120px;
+      min-height: 10px; }
+      centerbox > box.right box.sliders box.volume-slider > .volume-slider trough {
+        min-height: 10px;
+        min-width: 120px;
+        background: #262626; }
+      centerbox > box.right box.sliders box.volume-slider > .volume-slider highlight {
+        background: #33B1FF; }
+  centerbox > box.right .battery-container {
+    padding-left: 10px;
+    padding-right: 10px; }
+    centerbox > box.right .battery-container .battery-dial {
+      min-width: 40px;
+      min-height: 40px;
+      color: #42be65;
+      background-color: #161616;
+      margin: 0px;
+      padding: 0px;
+      font-size: 5px; }
+      centerbox > box.right .battery-container .battery-dial label, centerbox > box.right .battery-container .battery-dial icon {
+        font-family: 'Symbols Nerd Font Mono';
+        font-size: 16px;
+        color: #f2f4f8; }
+  centerbox > box.right separator {
+    background: #262626;
+    padding: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  centerbox > box.right box.clock {
+    margin: 10px;
+    background: #161616; }
+    centerbox > box.right box.clock .datetime {
+      margin: 1px;
+      font-size: 10pt; }
