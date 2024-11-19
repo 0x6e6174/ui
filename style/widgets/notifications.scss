@@ -1,9 +1,8 @@
 .notifications {
   > * {
     > box {
-      margin: 10px 20px;
+      margin: 10px 15px;
       border: 1px solid $fg;
-      border-right: none;
       background: $bg;
 
       .title {
@@ -25,6 +24,18 @@
         > trough > progress {
           background-image: none;
           background-color: $hl-alt-1;
+        }
+      }
+
+      .urgency-indicator {
+        min-width: 25px;
+
+        &.NORMAL, &.LOW {
+          background: $hl-alt-2;
+        }
+
+        &.CRITICAL {
+          background: $hl;
         }
       }
     }
