@@ -2,7 +2,8 @@ local workspaces <const> = require(... .. '.workspaces')
 local clock <const> = require(... .. '.clock')
 local battery <const> = require(... .. '.battery')
 local volume <const> = require(... .. '.volume')
-local brightness <const> = require(... .. '.brightness')
+local mpris <const> = require(... .. '.mpris')
+-- local brightness <const> = require(... .. '.brightness')
 
 return Astal.Window({
   namespace = "bar",
@@ -14,6 +15,7 @@ return Astal.Window({
       class_name = 'left',
       children = {
         workspaces,
+        mpris,
       }
     }),
     center_widget = Widget.Box({}),
