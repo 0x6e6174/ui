@@ -1,6 +1,6 @@
 .notifications {
   > * {
-    > box {
+    > button > box {
       margin: 10px 15px;
       border: 1px solid $fg;
       background: $bg;

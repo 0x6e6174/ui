@@ -21,56 +21,60 @@ local notification_icon = function(n)
 end
 
 local make_notification = function(n)
-	print(n:get_urgency())
-	local layout = Widget.Box({
-		children = {
-			Widget.Box({
-				vertical = true,
-				css = 'min-width: 200px; min-height: 50px;',
-				children = {
-					Widget.Box({
-						children = {
-							notification_icon(n),
-							Widget.Box({
-								vertical = true,
-								children = {
-									Widget.Label({
-										class_name = 'title',
-										label = n.summary,
-										xalign = 0,
-										justify = 0,
-										ellipsize = pango.EllipsizeMode.END,
-									}),
-									Widget.Label({
-										class_name = 'body',
-										label = n.body,
-										xalign = 0,
-										justify = 0,
-										wrap = true,
-										wrap_mode = pango.WrapMode.WORD_CHAR,
-										use_markup = true
-									})
-								}
-							}),
-						}
-					}),
-					Widget.ProgressBar({
-						class_name = 'timeout-bar',
-						hexpand = true,
-						valign = 2,
-						fraction = bind(Variable(1):poll(((n.expire_timeout > 0 and n.expire_timeout or popup_timeout_seconds) * 1000 + 250) // 100, function(prev)
-							if prev > .01 then
-								return prev - .01
-							end
-							return 0
-						end)),
-					})
-				}
-			}),
-			Widget.Box({
-				class_name = 'urgency-indicator ' .. n.urgency
-			})
-		}
+	local layout = Widget.Button({
+		on_clicked = function(self)
+			self:get_parent():set_reveal_child(false)
+		end,
+		child = Widget.Box({
+			children = {
+				Widget.Box({
+					vertical = true,
+					css = 'min-width: 200px; min-height: 50px;',
+					children = {
+						Widget.Box({
+							children = {
+								notification_icon(n),
+								Widget.Box({
+									vertical = true,
+									children = {
+										Widget.Label({
+											class_name = 'title',
+											label = n.summary,
+											xalign = 0,
+											justify = 0,
+											ellipsize = pango.EllipsizeMode.END,
+										}),
+										Widget.Label({
+											class_name = 'body',
+											label = n.body,
+											xalign = 0,
+											justify = 0,
+											wrap = true,
+											wrap_mode = pango.WrapMode.WORD_CHAR,
+											use_markup = true
+										})
+									}
+								}),
+							}
+						}),
+						Widget.ProgressBar({
+							class_name = 'timeout-bar',
+							hexpand = true,
+							valign = 2,
+							fraction = bind(Variable(1):poll(((n.expire_timeout > 0 and n.expire_timeout or popup_timeout_seconds) * 1000 + 250) // 100, function(prev)
+								if prev > .01 then
+									return prev - .01
+								end
+								return 0
+							end)),
+						})
+					}
+				}),
+				Widget.Box({
+					class_name = 'urgency-indicator ' .. n.urgency
+				})
+			}
+		})
 	})
 
 	return Widget.Revealer({
