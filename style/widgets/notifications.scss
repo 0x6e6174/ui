@@ -1,0 +1,44 @@
+.notifications {
+  > * {
+    > button > box {
+      margin: 10px 15px;
+      border: 1px solid $fg;
+      background: $bg;
+
+      .title {
+        font-family: 'tewi';
+        font-size: 22px;
+        min-width: 16rem;
+      }
+
+      .icon {
+        min-width: 64px;
+        min-height: 64px;
+        margin: 5px;
+        font-size: 58px;
+      }
+
+      .timeout-bar {
+        background: $bg-alt-1;
+
+        > trough > progress {
+          background-image: none;
+          background-color: $hl-alt-1;
+        }
+      }
+
+      .urgency-indicator {
+        min-width: 25px;
+
+        &.NORMAL, &.LOW {
+          background: $hl-alt-2;
+        }
+
+        &.CRITICAL {
+          background: $hl;
+        }
+      }
+    }
+  }
+}
+

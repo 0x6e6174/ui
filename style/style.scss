@@ -1,0 +1,9 @@
+* {
+  all: unset;
+}
+
+@import 'colors.scss';
+@import 'mixins.scss';
+
+@import './widgets/bar.scss';
+@import './widgets/notifications.scss';
