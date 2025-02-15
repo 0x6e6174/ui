@@ -12,7 +12,6 @@ class AstalPy(Astal.Application):
     request_handler: Optional[Callable[[str, Callable[[Any], None]], None]] = None
 
     def do_astal_application_request(self, msg: str, conn: Gio.SocketConnection):
-        print(msg)
         if callable(self.request_handler):
             def respond(response: Any):
                 AstalIO.write_sock(conn, str(response), None, None)

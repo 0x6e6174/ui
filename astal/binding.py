@@ -4,8 +4,6 @@ gi.require_version("GObject", "2.0")
 
 from gi.repository import GObject
 
-# from variable import Variable
-
 class Binding(GObject.Object):
     def __init__(self, emitter: GObject.GObject, property: str | None = None, transform_fn = lambda x: x):
         self.emitter = emitter

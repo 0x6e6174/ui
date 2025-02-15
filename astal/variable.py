@@ -31,6 +31,9 @@ class Variable(AstalIO.VariableBase):
     def __del__(self):
         self.emit_dropped()
 
+    def __call__(self, transform: Callable = lambda x: x):
+        return Binding(self).transform(transform)
+
     def subscribe(self, callback):
         id = self.emitter.connect(
             'changed',
@@ -38,6 +41,7 @@ class Variable(AstalIO.VariableBase):
         )
 
         def unsubscribe(_=None):
+            self.emit_dropped()
             self.emitter.disconnect(id)
 
         return unsubscribe
@@ -126,9 +130,21 @@ class Variable(AstalIO.VariableBase):
     def is_watching(self):
         return self.watch_proc != None
 
-    def observe(self, object, signal, callback=lambda _, x: x):
-        # not sure about this
-        object.connect(signal, lambda *args: self.set_value(callback(*args)))
+    def observe(self, object, signal_or_callback, callback=lambda _, x: x):
+        if isinstance(signal_or_callback, str):
+            f = callback
+        
+        else:
+            f = signal_or_callback
+
+        set = lambda *args: self.set(f(*args))
+
+        if isinstance(signal_or_callback, str):
+            object.connect(signal_or_callback, set)
+
+        if isinstance(object, list):
+            for connectable, signal in object:
+                connectable.connect(signal, set)
 
         return self
 
