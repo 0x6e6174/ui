@@ -14,6 +14,7 @@ from gi.repository import Astal, Gtk, GObject
 
 def astalify(widget: Gtk.Widget):
     class Widget(widget):
+        __gtype_name__ = "AstalPy" + widget.__name__
         class_name = ''
 
         def hook(self, object: GObject.Object, signal_or_callback: str | Callable, callback: Callable = lambda _, x: x):
@@ -83,12 +84,7 @@ def astalify(widget: Gtk.Widget):
         def __init__(self, **props):
             super().__init__()
 
-            if not 'show' in props:
-                self.show()
-
-            else:
-                if props['show']:
-                    self.show()
+            self.set_visible(props.get("visible", True))
 
             for prop, value in props.items():
                 if isinstance(value, Binding):
