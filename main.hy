@@ -5,6 +5,8 @@
 
 (import widgets)
 
+(exec-async "mpDris2")
+
 (defn compile-scss []
   (exec "sass style/style.scss style/style.css"))
 
