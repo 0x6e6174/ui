@@ -6,6 +6,7 @@
 (import .clock [clock])
 (import .battery [battery-dial])
 (import .volume [volume])
+(import .brightness [brightness])
 
 (setv bar (Widget.Window
   :namespace "bar"
@@ -26,7 +27,8 @@
           :class-name "sliders"
           :vertical True
           :children [
-            volume])
+            volume
+            brightness])
         battery-dial
         ((astalify Gtk.Separator))
         clock]))))

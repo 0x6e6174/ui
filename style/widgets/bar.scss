@@ -68,7 +68,7 @@ centerbox {
       margin: 5px;
       box.volume-slider {
         > button {
-          font-size: 20px; 
+          font-size: 24px; 
           margin: 5px;
         }
         
@@ -86,7 +86,29 @@ centerbox {
             background: $hl-alt-1;
           }
         }
-      } 
+      }
+
+      box.brightness-slider {
+        > button {
+          font-size: 20px; 
+          margin: 5px;
+        }
+        
+        > .brightness-slider { /* selecting this as `slider` doesn't work, for some reason.*/
+          min-width: 120px;
+          min-height: 10px;
+
+          & trough {
+            min-height: 10px;
+            min-width: 120px;
+            background: $bg-alt-1;
+          }
+
+          & highlight {
+            background: $hl-alt-1;
+          }
+        }
+      }
     }
 
     .battery-container {
