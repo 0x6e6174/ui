@@ -1,41 +1,34 @@
 (import astal *)
 (import astal.gtk3 *)
 
-(.require-version gi "AstalNiri" "0.1")
+(.require-version gi "AstalHyprland" "0.1")
 
-(import gi.repository [AstalNiri :as Niri])
+(import gi.repository [AstalHyprland :as Hyprland])
+
 
 (let [
-  Niri (.get-default Niri)
+  hyprland (.get-default Hyprland)
   workspace-row (fn [start stop]
     (Widget.Box
       :children (lfor i (range start stop)
         (Widget.Button
         :class-name "workspace"
         :attribute (+ i 1)
-        :on-clicked (fn [self] (exec-async f"niri msg action focus-workspace {self.attribute}"))
+        :on-clicked (fn [self] (.message-async hyprland f"dispatch workspace {self.attribute}"))
         :setup (fn [self]
-
-          (.hook self Niri "workspace-activated" (fn [_ w __] 
-            (when w
-              (.toggle-class-name self "focused" (= (.get-id (. Niri (get-workspace w))) self.attribute)))))
-
+          (.hook self hyprland "notify::focused-workspace" (fn [self, w] (.toggle-class-name self "focused" (= (.get-id w) self.attribute))))
           (defn update [#* _]
-            (let [workspace (.get-workspace Niri self.attribute)]
+            (let [workspace (.get-workspace hyprland self.attribute)]
               (when (!= workspace None)
-                (.toggle-class-name self "occupied" (< 0 (len (lfor window (. Niri (get-windows))
-                  :if (= (.get-workspace-id window) (.get-id workspace))
-                    window)))))))
+                (.toggle-class-name self "occupied" (< 0 (len (.get-clients workspace)))))))
 
-          (.hook self Niri "workspaces-changed" update)
-          (.hook self Niri "window-opened" update)
-          (.hook self Niri "window-changed" update)
-          (.hook self Niri "window-closed" update)
-
-          (idle update)
+          (.hook self hyprland "notify::workspaces" update)
+          (.hook self hyprland "notify::clients" update)
+          (.hook self hyprland "client-moved" update)
+          (update)
           
-          (idle (fn [] (when (= (.get-id (.get-focused-workspace Niri)) self.attribute)
-            (.toggle-class-name self "focused")))))))))]
+          (when (= (.get-id (.get-focused-workspace hyprland)) self.attribute)
+            (.toggle-class-name self "focused")))))))]
 
   (setv workspaces (Widget.Box
     :class_name "workspaces"
